@@ -1,0 +1,9 @@
+output_dir: './output_dir'
+ZSGAN:
+  device: 'cuda:2'
+  frozen_gen_ckpt: '/pretrained_models/stylegan2-ffhq-config-f.pt'
+  train_gen_ckpt: '/pretrained_models/stylegan2-ffhq-config-f.pt'
+  size: 1024
+restyle:
+  e4e_ffhq_encode_path: './pretrained_models/restyle_e4e_ffhq_encode.pt'
+  device: 'cuda:0'
