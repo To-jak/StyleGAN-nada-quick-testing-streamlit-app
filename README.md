@@ -6,7 +6,7 @@
 > Rinon Gal, Or Patashnik, Haggai Maron, Gal Chechik, Daniel Cohen-Or <br>
     
 <p align="center">
-  <img src="img/training.png" width="40%"/>
+  <img src="img/training.png" width="50%"/>
 </p>
   
 ## Description  
