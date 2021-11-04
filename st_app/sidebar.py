@@ -8,6 +8,7 @@ def get_sidebar_params():
 
     # Training Options
     st.sidebar.header('Training Options')
+    sidebar_params['use_target_img_dir'] = st.sidebar.checkbox('Use target images from /target_img_dir', value=False)
     sidebar_params['training_iterations'] = st.sidebar.number_input('Number of iterations', min_value=1, value=151)
     sidebar_params['output_interval'] = st.sidebar.number_input(
         'Output interval',

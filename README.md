@@ -13,7 +13,7 @@
   
 The StyleGAN-nada framework introduces a method where one of two paired StyleGAN2 generators is trained with a CLIP guided loss for a few iterations. I implemented a streamlit interface to visually observe the training and testing of a Stylegan2-ffhq-config-f based model. By doing so, you can explore with an experimental approach some ideas for the source and target classes, without the need to run scripts multiple times or to connect to the official colab notebook demo if you dispose of GPU ressources.
     
-The code adapts the a large part of the functionnalities demonstrated in the authors' colab notebook.  
+The code adapts a large part of the functionnalities demonstrated in the authors' colab notebook.  
 Image inversion currently supports the [ReStyle](https://github.com/yuval-alaluf/restyle-encoder) encoder with a [e4e](https://github.com/omertov/encoder4editing) base model.    
 
 
@@ -43,7 +43,7 @@ Use the following command to run the demo and access it in your browser:
 streamlit run app.py
 ```
 
-**Note**: this streamlit application is not developped for production, as you may face gpu memory issues if multiple users access it and train different models at the same time.  
+**Note**: this streamlit application is not developped for deployment, as you may face gpu memory issues if multiple users access it and train different models at the same time.  
   
 Under the main section, you can enter a source and target class:  
   
@@ -63,3 +63,5 @@ You can control the main training parameters with the sidebar, as well as activa
   <img src="img/samples_grid.png" width="30%"/>
   <img src="img/image_inversion.png" width="30%"/>
 </p>
+  
+If you want to guide the model with additional images, you can add image files to a `target_img_dir` at the root folder of the repo.

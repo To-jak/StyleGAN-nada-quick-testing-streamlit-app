@@ -57,6 +57,13 @@ mixing = 0.9 if improve_shape else 0.0
 auto_layers_k = int(2 * (2 * np.log2(1024) - 2) / 3) if improve_shape else 0
 auto_layer_iters = 1 if improve_shape else 0
 
+# Optionnal target_image_dir
+if sidebar_params['use_target_img_dir']:
+    target_img_list = [os.path.join('target_img_dir', filename) for filename in os.listdir('target_img_dir')]
+    target_img_list = None if len(target_img_list) == 0 else target_img_list
+else:
+    target_img_list = None
+
 training_args = {
     "size": APP_CONFIG['ZSGAN']['size'],
     "batch": 2,
@@ -83,7 +90,7 @@ training_args = {
     "phase": None,
     "sample_truncation": 0.7,
     "save_interval": sidebar_params['save_interval'],
-    "target_img_list": None,
+    "target_img_list": target_img_list,
     "img2img_batch": 16,
     "device": device
 }
@@ -122,8 +129,7 @@ def on_reset_model_button():
 def on_save_button():
     torch.save(
         {
-            "g_ema": net.generator_trainable.generator.state_dict(),
-            "g_optim": None if g_optim is None else g_optim.state_dict(),
+            "g_ema": net.generator_trainable.generator.state_dict()
         },
         f"{ckpt_dir}/{net.source_class}_{net.target_class}_{str(st.session_state.iter_count).zfill(6)}.pt",
     )
